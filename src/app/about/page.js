@@ -11,7 +11,7 @@ const AboutPage = () => {
 
         {/* Introduction */}
         <p className="text-gray-700 text-lg leading-relaxed text-center mb-10">
-          Welcome to FAMShop – your one-stop destination for trendy fashion,
+          Welcome to FAMShop your one-stop destination for trendy fashion,
           top-quality products, and a seamless online shopping experience.
         </p>
 
@@ -35,8 +35,8 @@ const AboutPage = () => {
               At FAMShop, we believe fashion should be fun, affordable, and
               accessible to everyone. Our dedicated team curates a wide range of
               styles and brands to make sure you find something that fits your
-              vibe. Whether you're looking for the latest arrivals or timeless
-              classics, we’ve got you covered.
+              vibe. Whether you are looking for the latest arrivals or timeless
+              classics, we have got you covered.
             </p>
           </div>
         </div>
@@ -61,8 +61,7 @@ const AboutPage = () => {
           </h2>
           <p className="text-gray-600 mb-4">
             Reach out to us via our{" "}
-            <span className="text-pink-500 font-medium">Contact Us</span> page —
-            we’d love to hear from you!
+            <span className="text-pink-500 font-medium">Contact Us</span> page we had love to hear from you!
           </p>
           <a
             href="/contact"
