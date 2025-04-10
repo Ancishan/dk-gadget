@@ -19,7 +19,7 @@ const ProductDetails = () => {
         console.log("Fetching product with ID:", id); // Debug log
 
         const res = await axios.get(
-          `https://dk-gadget-server-2.onrender.com/products/${id}`
+          `https://dk-gadget-server-3.onrender.com/products/${id}`
         );
 
         if (res.data.success) {
