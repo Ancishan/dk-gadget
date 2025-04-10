@@ -39,7 +39,7 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:5000/products", product);
+            const res = await axios.post("https://dk-gadget-server-1.onrender.com/products", product);
             console.log("Product saved:", res.data);
             alert("Product added successfully!");
         } catch (err) {

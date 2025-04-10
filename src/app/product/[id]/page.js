@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
         console.log("Fetching product with ID:", id); // Debug log
 
-        const res = await axios.get(`http://localhost:5000/products/${id}`);
+        const res = await axios.get(`https://dk-gadget-server-1.onrender.com/products/${id}`);
 
         if (res.data.success) {
           setProduct(res.data.product);

@@ -11,7 +11,7 @@ const AllProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products');
+        const res = await axios.get('https://dk-gadget-server-1.onrender.com/products');
         setProducts(res.data);
       } catch (err) {
         console.error("Failed to fetch products:", err);
@@ -24,7 +24,7 @@ const AllProduct = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
+        await axios.delete(`https://dk-gadget-server-1.onrender.com/api/products/${id}`);
         setProducts(products.filter(product => product._id !== id));
         alert('Product deleted successfully');
       } catch (err) {
