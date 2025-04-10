@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
-
+import Image from "next/image";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -18,7 +18,9 @@ const ProductDetails = () => {
 
         console.log("Fetching product with ID:", id); // Debug log
 
-        const res = await axios.get(`https://dk-gadget-server-1.onrender.com/products/${id}`);
+        const res = await axios.get(
+          `https://dk-gadget-server-1.onrender.com/products/${id}`
+        );
 
         if (res.data.success) {
           setProduct(res.data.product);
@@ -33,7 +35,11 @@ const ProductDetails = () => {
           id: id,
         });
 
-        setError(err.response?.data?.message || err.message || "Failed to fetch product");
+        setError(
+          err.response?.data?.message ||
+            err.message ||
+            "Failed to fetch product"
+        );
       } finally {
         setLoading(false);
       }
@@ -67,34 +73,34 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div className="text-center py-12 text-red-500">
-        Product not found
-      </div>
+      <div className="text-center py-12 text-red-500">Product not found</div>
     );
   }
 
   // Dynamic model-based font size
-  const modelFontSize = product.model ? 'text-lg' : 'text-base';
+  const modelFontSize = product.model ? "text-lg" : "text-base";
 
   // WhatsApp message and phone number
-  const whatsappPhoneNumber = '1234567890';  // Replace with your WhatsApp number
-  const message = `Hello, I am interested in the ${product.name}. Please provide more details.`;  // Customize message
+  const whatsappPhoneNumber = "1234567890"; // Replace with your WhatsApp number
+  const message = `Hello, I am interested in the ${product.name}. Please provide more details.`; // Customize message
 
   // WhatsApp link
-  const whatsappLink = `https://wa.me/${+8801829806490}?text=${encodeURIComponent(message)}`;
+  const whatsappLink = `https://wa.me/${+8801829806490}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <div className="max-w-xl mx-auto mt-24 p-6">
       <div className="grid md:grid-cols-1 gap-6 items-start">
         {/* Product Image */}
         <div className="rounded-lg overflow-hidden mb-6">
-        <img
-  src={product.image}
-  alt={product.name}
-
-  className="w-lg h-[400px]"
-/>
-
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={600} // Set a fixed width (or dynamic)
+            height={400} // Set a fixed height (or dynamic)
+            className="object-cover w-full h-[400px]"
+          />
         </div>
 
         {/* Product Information */}
@@ -102,7 +108,9 @@ const ProductDetails = () => {
           <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
 
           {product.model && (
-            <p className={`text-gray-600 ${modelFontSize}`}>Model: {product.model}</p>
+            <p className={`text-gray-600 ${modelFontSize}`}>
+              Model: {product.model}
+            </p>
           )}
 
           {/* Product Description (if exists) */}
@@ -110,7 +118,9 @@ const ProductDetails = () => {
             <p className="text-gray-700 text-base">{product.description}</p>
           )}
 
-          <p className="text-2xl font-semibold text-blue-600">${product.price}</p>
+          <p className="text-2xl font-semibold text-blue-600">
+            ${product.price}
+          </p>
 
           {/* Order Now button linking to WhatsApp */}
           <div className="mt-6">

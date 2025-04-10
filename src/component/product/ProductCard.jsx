@@ -1,26 +1,29 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ProductCard = ({ product }) => {
   const { name, model, price, image, _id } = product;
   const router = useRouter();
 
+  const [imgSrc, setImgSrc] = useState(image); // 🟢 এখানে imgSrc define করছি
+
   const handleViewDetails = () => {
-    console.log("Navigating to product:", _id); // Debug log
     router.push(`/product/${_id}`);
   };
 
   return (
     <div className="border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] group">
       <div className="relative overflow-hidden rounded-lg aspect-square mb-3">
-        <img
-          src={image}
+        <Image
+          src={imgSrc}
           alt={name}
+          width={500}
+          height={500}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            e.target.src = "/placeholder-image.jpg";
-            e.target.className = "w-full h-full object-contain p-4 bg-gray-100";
+          onError={() => {
+            setImgSrc("/placeholder-image.jpg"); // fallback ইমেজ
           }}
         />
       </div>
@@ -30,7 +33,7 @@ const ProductCard = ({ product }) => {
       <div className="mt-2 space-y-1">
         {model && (
           <p className="text-sm text-gray-600">
-            model: <span className="font-medium">{model}</span>
+            Model: <span className="font-medium">{model}</span>
           </p>
         )}
         <p className="text-lg font-bold text-gray-900">${price}</p>
