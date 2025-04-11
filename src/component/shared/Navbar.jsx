@@ -28,9 +28,9 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-700 tracking-wide uppercase hover:brightness-125 transition duration-300"
+              className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-700 tracking-wide uppercase hover:brightness-125 transition duration-300"
             >
-              Dk-Gadget
+              Dk-Gadget-Hub
             </Link>
           </div>
 

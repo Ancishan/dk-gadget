@@ -24,8 +24,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-3">Contact</h3>
             <ul className="text-sm text-gray-300 space-y-2">
-              <li>Email: support@dkgadget.com</li>
-              <li>Phone: +880 1884282166</li>
+              <li>Email: dkg46742@gmail.com</li>
+              <li>Phone: +8801829806490</li>
               <li>Location: Chittagong, Bangladesh</li>
             </ul>
           </div>
