@@ -30,11 +30,11 @@ const ProductCard = ({ product }) => {
         </h3>
         <div className="mt-2 space-y-1">
           {model && (
-            <p className="text-sm text-white">
+            <p className="text-sm text-violet-900">
               Model: <span className="font-medium">{model}</span>
             </p>
           )}
-          <p className="text-lg font-bold text-white">৳ {price}</p>
+          <p className="text-lg font-bold text-violet-900">৳ {price}</p>
         </div>
       </div>
       <button

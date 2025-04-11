@@ -20,7 +20,7 @@ const ContactPage = () => {
     e.preventDefault();
     const { name, email, message } = formData;
 
-    const whatsappNumber = "8801829806490";
+    const whatsappNumber = "01622980679";
     const text = `Hello, I am ${name} (%0AEmail: ${email})%0A%0AMessage:%0A${message}`;
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
 
@@ -42,7 +42,7 @@ const ContactPage = () => {
             dkg46742@gmail.com
           </p>
           <p>
-            <span className="font-medium text-white">Phone:</span> 01829806490
+            <span className="font-medium text-white">Phone:</span> 01622980679
           </p>
           <p>
             <span className="font-medium text-white">Location:</span>{" "}

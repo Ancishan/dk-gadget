@@ -60,20 +60,20 @@ const AllProduct = () => {
               className="w-full h-48 object-cover mb-2"
               onError={() => setFallback(true)} 
             />
-            <h3 className="text-xl font-semibold">{product.name}</h3>
-            <p>Price: ${product.price}</p>
-            <p>Size: {product.size}</p>
+            <h3 className="text-xl text-violet-900 font-semibold">{product.name}</h3>
+            <p className="text-violet-900">Price:৳{product.price}</p>
+            <p className="text-violet-900">Size: {product.size}</p>
 
             <div className="flex gap-2 mt-3">
               <button
                 onClick={() => handleUpdate(product._id)}
-                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                className="bg-blue-500 text-violet-900 px-3 py-1 rounded hover:bg-blue-600"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(product._id)}
-                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                className="bg-red-500 text-violet-900 px-3 py-1 rounded hover:bg-red-600"
               >
                 Delete
               </button>
