@@ -106,7 +106,7 @@ const Navbar = () => {
       <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-indigo-900 bg-opacity-95">
           <Link
-            href="/new-arrivals"
+            href="/newArrivals"
             className="block px-3 py-2 rounded-md text-base font-mediumtext-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-700 tracking-wide uppercase hover:brightness-125 transition duration-300"
           >
             New Arrivals
