@@ -105,17 +105,17 @@ const ProductDetails = () => {
 
         {/* Product Information */}
         <div className="space-y-4">
-          <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
+          <h1 className="text-3xl font-bold text-white">{product.name}</h1>
 
           {product.model && (
-            <p className={`text-gray-600 ${modelFontSize}`}>
+            <p className={`text-white ${modelFontSize}`}>
               Model: {product.model}
             </p>
           )}
 
           {/* Product Description (if exists) */}
           {product.description && (
-            <p className="text-gray-700 text-base">{product.description}</p>
+            <p className="text-white text-base">{product.description}</p>
           )}
 
           <p className="text-2xl font-semibold text-blue-600">
