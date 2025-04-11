@@ -93,7 +93,7 @@ const ContactPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-950-500 hover:bg-pink-700 text-white py-2 rounded-lg transition duration-300 shadow-lg"
+            className="w-full bg-violet-900 hover:bg-pink-700 text-white py-2 rounded-lg transition duration-300 shadow-lg"
           >
             Send Message via WhatsApp
           </button>
