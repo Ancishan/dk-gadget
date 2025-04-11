@@ -64,7 +64,7 @@ const AboutPage = () => {
             <a href="/contact" className="text-blue-500 font-medium underline">
               Contact Us
             </a>{" "}
-            page — we'd love to hear from you!
+            page we had love to hear from you!
           </p>
           <a
             href="/contact"
