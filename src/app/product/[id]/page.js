@@ -119,7 +119,7 @@ const ProductDetails = () => {
           )}
 
           <p className="text-2xl font-semibold text-blue-600">
-            ${product.price}
+          ৳ {product.price}
           </p>
 
           {/* Order Now button linking to WhatsApp */}

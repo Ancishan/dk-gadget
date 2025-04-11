@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
               Model: <span className="font-medium">{model}</span>
             </p>
           )}
-          <p className="text-lg font-bold text-gray-900">${price}</p>
+          <p className="text-lg font-bold text-gray-900">৳ {price}</p>
         </div>
       </div>
       <button
