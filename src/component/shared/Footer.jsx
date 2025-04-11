@@ -34,7 +34,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">Facebook</a>
+              <a href="https://www.facebook.com/share/1BtCW2giM3" className="hover:text-white">Facebook</a>
               <a href="#" className="hover:text-white">Instagram</a>
               <a href="#" className="hover:text-white">Twitter</a>
             </div>
