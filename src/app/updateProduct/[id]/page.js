@@ -2,6 +2,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 const UpdateProductPage = () => {
   const params = useParams();
@@ -9,6 +10,7 @@ const UpdateProductPage = () => {
   const id = params?.id;
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [imageUploading, setImageUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     model: '',
@@ -39,7 +41,6 @@ const UpdateProductPage = () => {
     fetchData();
   }, [id]);
 
-  // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -48,13 +49,37 @@ const UpdateProductPage = () => {
     }));
   };
 
-  // Handle form submission
+  const handleImageUpload = async (e) => {
+    const imageFile = e.target.files[0];
+    if (!imageFile) return;
+
+    const formDataImage = new FormData();
+    formDataImage.append('image', imageFile);
+
+    setImageUploading(true);
+    try {
+      // Replace this with your actual ImgBB API key
+      const res = await axios.post('https://api.imgbb.com/1/upload?key=5baab7a9e1cdc65f0721a2b32aef61bb', formDataImage);
+      const imageUrl = res.data.data.url;
+
+      setFormData((prevData) => ({
+        ...prevData,
+        image: imageUrl,
+      }));
+    } catch (error) {
+      console.error('Image upload failed:', error);
+      alert('Image upload failed');
+    } finally {
+      setImageUploading(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.put(`https://dk-gadget-server-3.onrender.com/api/products/${id}`, formData);
       alert('Product updated successfully');
-      router.push('/admin'); // Redirect to all products page
+      router.push('/admin');
     } catch (err) {
       console.error("Failed to update product:", err);
       alert("Failed to update product");
@@ -64,7 +89,7 @@ const UpdateProductPage = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className='mt-6'>
+    <div className='mt-6 max-w-xl mx-auto'>
       <h1 className='text-2xl font-bold mb-4'>Edit Product</h1>
       {product ? (
         <form onSubmit={handleSubmit} className='space-y-4'>
@@ -108,15 +133,24 @@ const UpdateProductPage = () => {
           </div>
 
           <div>
-            <label htmlFor='image' className='block text-sm font-medium'>Image URL</label>
+            <label htmlFor='image' className='block text-sm font-medium'>Upload Image</label>
             <input
-              type='text'
+              type='file'
               id='image'
-              name='image'
-              value={formData.image}
-              onChange={handleChange}
+              accept='image/*'
+              onChange={handleImageUpload}
               className='w-full p-2 border border-gray-300 rounded'
             />
+            {imageUploading && <p className="text-blue-500 text-sm mt-1">Uploading...</p>}
+            {formData.image && !imageUploading && (
+           <Image
+           src={formData.image}
+           alt="Uploaded"
+           width={128}
+           height={128}
+           className="rounded object-cover"
+         />
+            )}
           </div>
 
           <div>
@@ -132,8 +166,12 @@ const UpdateProductPage = () => {
             ></textarea>
           </div>
 
-          <button type='submit' className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'>
-            Update Product
+          <button
+            type='submit'
+            className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
+            disabled={imageUploading}
+          >
+            {imageUploading ? 'Uploading Image...' : 'Update Product'}
           </button>
         </form>
       ) : (
